@@ -8,8 +8,16 @@
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>dao</artifactId>
+	<artifactId>interface</artifactId>
 	<packaging>bundle</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.xml</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.0</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
@@ -19,7 +27,13 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Export-Package>com.github.osgi.dao</Export-Package>
+						<Export-Package>
+							com.github.osgi.model,
+							com.github.osgi.dao
+						</Export-Package>
+						<Import-Package>
+							javax.xml.bind.annotation
+						</Import-Package>
 					</instructions>
 				</configuration>
 			</plugin>

@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:osgi="http://www.springframework.org/schema/osgi"
 	xsi:schemaLocation="
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
-http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
-http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd 
+	http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd 
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
+	<context:annotation-config />
+	<context:component-scan base-package="com.github.osgi" />
+
+	<bean
+		class="org.springframework.osgi.extensions.annotation.ServiceReferenceInjectionBeanPostProcessor" />
 
 	<!-- http://127.0.0.1:8181/cxf/osgi/books -->
 	<jaxrs:server id="bookService" address="/osgi">
 		<jaxrs:serviceBeans>
-			<ref bean="customerSvc" />
+			<ref bean="booksRestService" />
 		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref bean="serviceUnavailableExceptionMapper" />
+		</jaxrs:providers>
 	</jaxrs:server>
-
-	<bean id="customerSvc" class="com.github.osgi.service.BooksRestService" />
 
 </beans>

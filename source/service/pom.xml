@@ -18,8 +18,42 @@
 			<version>1.0</version>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.osgi</groupId>
+			<artifactId>spring-osgi-annotation</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.osgi</groupId>
+			<artifactId>spring-osgi-core</artifactId>
+			<version>1.2.0</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>org.springframework.aop</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>org.springframework.context</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>org.springframework.beans</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>org.springframework.core</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>3.0.6.RELEASE</version>
+		</dependency>
+		<dependency>
 			<groupId>com.github.osgi</groupId>
-			<artifactId>model</artifactId>
+			<artifactId>interface</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
@@ -37,7 +71,13 @@
 						</Export-Package>
 						<Import-Package>
 							javax.ws.rs,
-							com.github.osgi.model
+							javax.ws.rs.ext,
+							javax.ws.rs.core,
+							org.springframework.osgi.extensions.annotation,
+							org.springframework.osgi.service,
+							org.springframework.stereotype,
+							com.github.osgi.model,
+							com.github.osgi.dao
 						</Import-Package>
 					</instructions>
 				</configuration>
