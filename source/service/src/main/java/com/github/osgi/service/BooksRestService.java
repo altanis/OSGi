@@ -9,6 +9,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
 import org.springframework.osgi.extensions.annotation.ServiceReference;
@@ -36,14 +37,14 @@ public class BooksRestService {
 	@GET
 	@Path("{isbn}")
 	@Produces("application/xml")	
-	public Book getBook(String isbn) {
+	public Book getBook(@PathParam("isbn") String isbn) {
 		logger.info("Getting book with isbn: " + isbn);
 		return getDao().getBook(isbn);
 	}
 	
 	@DELETE
 	@Path("{isbn}")
-	public Response removeBook(String isbn) {
+	public Response removeBook(@PathParam("isbn") String isbn) {
 		logger.info("Removing book with isbn: " + isbn);
 		final Book toBeDeleted = getDao().getBook(isbn);
 		if(toBeDeleted == null) {

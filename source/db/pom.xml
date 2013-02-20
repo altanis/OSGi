@@ -8,14 +8,15 @@
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>model</artifactId>
+	<artifactId>db</artifactId>
 	<packaging>bundle</packaging>
+	<name>OSGI Example :: Database bundle</name>
 
 	<dependencies>
 		<dependency>
-			<groupId>javax.xml</groupId>
-			<artifactId>jaxb-api</artifactId>
-			<version>2.0</version>
+			<groupId>com.github.osgi</groupId>
+			<artifactId>interface</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -27,8 +28,11 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Export-Package>com.github.osgi.model</Export-Package>
-						<Import-Package>javax.xml.bind.annotation</Import-Package>
+						<Import-Package>
+							com.github.osgi.dao,
+							com.github.osgi.model,
+							javax.xml.bind.annotation
+						</Import-Package>
 					</instructions>
 				</configuration>
 			</plugin>
