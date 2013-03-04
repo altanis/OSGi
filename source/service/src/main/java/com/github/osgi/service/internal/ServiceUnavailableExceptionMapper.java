@@ -14,12 +14,14 @@ import org.springframework.stereotype.Component;
 public class ServiceUnavailableExceptionMapper implements
 		ExceptionMapper<ServiceUnavailableException> {
 
-	private static final Logger logger = Logger.getLogger(ServiceUnavailableExceptionMapper.class.getCanonicalName());
-	
+	private static final Logger logger = Logger
+			.getLogger(ServiceUnavailableExceptionMapper.class
+					.getCanonicalName());
+
 	public Response toResponse(ServiceUnavailableException e) {
-		
+
 		logger.info("Caught exception and remapping to 503: " + e);
-		
+
 		return Response.status(Response.Status.SERVICE_UNAVAILABLE)
 				.entity("Sorry, try again later.").build();
 	}

@@ -16,41 +16,19 @@
 		<dependency>
 			<groupId>javax.ws.rs</groupId>
 			<artifactId>jsr311-api</artifactId>
-			<version>1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.osgi</groupId>
 			<artifactId>spring-osgi-annotation</artifactId>
-			<version>1.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.osgi</groupId>
 			<artifactId>spring-osgi-core</artifactId>
-			<version>1.2.0</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>org.springframework.aop</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>org.springframework.context</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>org.springframework.beans</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>org.springframework.core</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>3.0.6.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>com.github.osgi</groupId>
@@ -80,6 +58,9 @@
 							com.github.osgi.model,
 							com.github.osgi.dao
 						</Import-Package>
+						<Private-Package>
+							com.github.osgi.service.internal
+						</Private-Package>
 					</instructions>
 				</configuration>
 			</plugin>

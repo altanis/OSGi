@@ -9,6 +9,6 @@
 
 	<bean id="bookshelfDaoImpl" class="com.github.osgi.dao.internal.BookshelfDaoImpl" />
 	
-	<osgi:service ref="bookshelfDaoImpl" auto-export="interfaces" ranking="1"/>
+	<osgi:service ref="bookshelfDaoImpl" auto-export="interfaces" ranking="0"/>
 
 </beans>

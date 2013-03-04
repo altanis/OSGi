@@ -1,4 +1,4 @@
-package com.github.osgi.dao.impl;
+package com.github.osgi.dao.internal;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,7 +10,7 @@ import com.github.osgi.model.Book;
 public class BookshelfDaoImpl implements BookshelfDao {
 
 	private List<Book> books = new ArrayList<Book>();
-	
+
 	public void addNewBook(Book book) {
 		books.add(book);
 	}
@@ -20,17 +20,17 @@ public class BookshelfDaoImpl implements BookshelfDao {
 	}
 
 	public Book getBook(String isbn) {
-		for(Book b : books) {
-			if(b.getIsbn().equals(isbn)) {
+		for (Book b : books) {
+			if (b.getIsbn().equals(isbn)) {
 				return b;
 			}
 		}
-		
+
 		return null;
 	}
 
 	public void removeBook(Book book) {
 		books.remove(book);
 	}
-	
+
 }

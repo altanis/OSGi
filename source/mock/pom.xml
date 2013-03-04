@@ -8,9 +8,9 @@
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>db</artifactId>
+	<artifactId>mock</artifactId>
 	<packaging>bundle</packaging>
-	<name>OSGI Example :: Database bundle</name>
+	<name>OSGI Example :: Database mock bundle</name>
 
 	<dependencies>
 		<dependency>
